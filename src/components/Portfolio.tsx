@@ -3,7 +3,7 @@ import {
   Github, Linkedin, Mail, Phone, MapPin, ArrowUpRight, Sparkles, Brain,
   ShieldCheck, LineChart, Fish, Send, HeartPulse, GraduationCap, Trophy,
   Award, Medal, Rocket, Cpu, Database, Code2, Palette, Wrench, Users,
-  ExternalLink, ChevronRight,
+  ExternalLink, ChevronRight, FileText, Download,
 } from "lucide-react";
 
 /* ---------------- Data ---------------- */
@@ -11,10 +11,12 @@ import {
 const NAME = "Amrutha";
 const ROLE = "AI & Data Science Engineer";
 const LOCATION = "Udupi, Karnataka";
-const EMAIL = "amruthashripad@gmail.com";
+const EMAIL = "amrutha.codergirl@gmail.com";
 const PHONE = "+91 80739 72157";
 const GITHUB = "https://github.com/16Amrutha";
 const LINKEDIN = "https://www.linkedin.com/in/amrutha-s-90465528b";
+const RESUME = "/documents/Resume.pdf";
+const CV = "/documents/cv.pdf";
 
 type Project = {
   name: string;
@@ -239,79 +241,159 @@ function Nav() {
 /* ---------------- Hero ---------------- */
 function Hero() {
   return (
-    <section id="top" className="relative min-h-screen flex items-center pt-32 pb-24 hero-grad">
+    <section
+      id="top"
+      className="relative min-h-screen flex items-center pt-32 pb-24 hero-grad"
+    >
       <div className="mx-auto max-w-7xl px-6 grid lg:grid-cols-12 gap-10 items-center relative">
+
+        {/* LEFT SIDE */}
         <div className="lg:col-span-8">
           <div className="reveal inline-flex items-center gap-2 glass rounded-full px-4 py-1.5 text-xs uppercase tracking-[0.2em] text-white/70">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
             Available for internships & research collabs
           </div>
+
           <h1 className="reveal mt-6 font-display font-bold leading-[0.9] tracking-tight text-[clamp(3rem,9vw,7.5rem)]">
             <span className="block text-white/90">Building</span>
             <span className="block text-gradient">intelligent</span>
             <span className="block text-white/90">experiences.</span>
           </h1>
+
           <p className="reveal mt-8 max-w-xl text-lg text-white/70 leading-relaxed">
-            I'm <span className="text-white">{NAME}</span> — an {ROLE.toLowerCase()} crafting
-            AI, ML and secure systems that bridge <em className="text-white/90 not-italic">technology</em> and
-            <em className="text-white/90 not-italic"> human impact</em>.
+            I'm <span className="text-white">{NAME}</span> — an{" "}
+            {ROLE.toLowerCase()} crafting AI, ML and secure systems that
+            bridge{" "}
+            <em className="text-white/90 not-italic">technology</em> and
+            <em className="text-white/90 not-italic">
+              {" "}
+              human impact
+            </em>.
           </p>
+
           <div className="reveal mt-10 flex flex-wrap gap-4">
-            <a href="#projects" className="magnetic-btn rounded-full px-6 py-3 text-sm font-medium inline-flex items-center gap-2 glow-ring bg-white text-black">
-              Explore projects <ArrowUpRight className="w-4 h-4" />
+            <a
+              href="#projects"
+              className="magnetic-btn rounded-full px-6 py-3 text-sm font-medium inline-flex items-center gap-2 glow-ring bg-white text-black"
+            >
+              Explore Projects
+              <ArrowUpRight className="w-4 h-4" />
             </a>
-            <a href="#contact" className="glass rounded-full px-6 py-3 text-sm font-medium inline-flex items-center gap-2 hover:bg-white/10 transition">
-              Get in touch
+
+            <a
+              href="#contact"
+              className="glass rounded-full px-6 py-3 text-sm font-medium inline-flex items-center gap-2 hover:bg-white/10 transition"
+            >
+              Get in Touch
             </a>
           </div>
+
           <div className="reveal mt-14 grid grid-cols-3 gap-6 max-w-lg">
             {[
               { k: "8.9", v: "CGPA / 10" },
-              { k: "12+", v: "Hackathon wins" },
-              { k: "7", v: "Live projects" },
+              { k: "12+", v: "Hackathon Wins" },
+              { k: "7", v: "Live Projects" },
             ].map((s) => (
               <div key={s.v} className="glass rounded-2xl p-4">
-                <div className="text-3xl font-display font-semibold text-gradient">{s.k}</div>
+                <div className="text-3xl font-display font-semibold text-gradient">
+                  {s.k}
+                </div>
                 <div className="text-xs text-white/60 mt-1">{s.v}</div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Right visual - orbiting badge */}
-        <div className="lg:col-span-4 relative hidden lg:block">
-          <div className="reveal relative w-full aspect-square">
+        {/* RIGHT SIDE */}
+        <div className="lg:col-span-4 hidden lg:flex flex-col items-center">
+
+          {/* Circle */}
+          <div className="reveal relative w-full max-w-[420px] aspect-square">
+
             <div className="absolute inset-0 rounded-full glass-strong grid place-items-center overflow-hidden">
-              <div className="absolute inset-0 opacity-60"
-                   style={{ background: "conic-gradient(from 0deg, oklch(0.85 0.17 200 / 0.3), oklch(0.7 0.22 290 / 0.5), oklch(0.72 0.24 340 / 0.3), oklch(0.85 0.17 200 / 0.3))",
-                            animation: "orbit 20s linear infinite" }} />
+              <div
+                className="absolute inset-0 opacity-60"
+                style={{
+                  background:
+                    "conic-gradient(from 0deg, oklch(0.85 0.17 200 / 0.3), oklch(0.7 0.22 290 / 0.5), oklch(0.72 0.24 340 / 0.3), oklch(0.85 0.17 200 / 0.3))",
+                  animation: "orbit 20s linear infinite",
+                }}
+              />
+
               <div className="relative text-center">
-                <div className="text-6xl font-display font-bold text-gradient">AI/DS</div>
-                <div className="mt-2 text-xs uppercase tracking-[0.35em] text-white/70">Engineer</div>
+                <img
+                src="/images/profile.jpeg"
+                alt="Amrutha"
+                className="w-72 h-72 rounded-full object-cover"
+                />
+                <div className="mt-2 text-xs uppercase tracking-[0.35em] text-white/70">
+                  Engineer
+                </div>
               </div>
             </div>
-            {["Python","PyTorch","React","IoT","LLM","CNN"].map((t,i) => (
-              <div key={t} className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
-                   style={{ ["--r" as string]: `${170}px`, animation: `orbit ${20 + i * 3}s linear infinite`, animationDelay: `${i * -2}s` }}>
-                <div className="glass rounded-full px-3 py-1 text-xs font-mono whitespace-nowrap">{t}</div>
-              </div>
-            ))}
+
+            {["Python", "PyTorch", "React", "IoT", "LLM", "CNN"].map(
+              (t, i) => (
+                <div
+                  key={t}
+                  className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+                  style={{
+                    ["--r" as string]: "170px",
+                    animation: `orbit ${20 + i * 3}s linear infinite`,
+                    animationDelay: `${i * -2}s`,
+                  }}
+                >
+                  <div className="glass rounded-full px-3 py-1 text-xs font-mono whitespace-nowrap">
+                    {t}
+                  </div>
+                </div>
+              )
+            )}
           </div>
+
+          {/* Resume Buttons BELOW the circle */}
+          <div className="reveal mt-8 flex gap-4">
+            <a
+              href={RESUME}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="glass rounded-full px-6 py-3 inline-flex items-center gap-2 text-sm font-medium hover:bg-white/10 transition"
+            >
+              📄 Resume
+            </a>
+
+            <a
+              href={CV}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="glass rounded-full px-6 py-3 inline-flex items-center gap-2 text-sm font-medium hover:bg-white/10 transition"
+            >
+              📑 CV
+            </a>
+          </div>
+
         </div>
       </div>
 
-      {/* marquee */}
+      {/* Marquee */}
       <div className="absolute bottom-6 inset-x-0 overflow-hidden">
         <div className="flex animate-marquee whitespace-nowrap gap-16 text-white/30 text-sm uppercase tracking-[0.35em]">
           {Array.from({ length: 2 }).map((_, i) => (
             <div key={i} className="flex gap-16">
-              <span>Machine Learning</span><span>·</span>
-              <span>Deep Learning</span><span>·</span>
-              <span>Computer Vision</span><span>·</span>
-              <span>Cybersecurity</span><span>·</span>
-              <span>IoT Systems</span><span>·</span>
-              <span>Research</span><span>·</span>
-              <span>Full-Stack</span><span>·</span>
+              <span>Machine Learning</span>
+              <span>·</span>
+              <span>Deep Learning</span>
+              <span>·</span>
+              <span>Computer Vision</span>
+              <span>·</span>
+              <span>Cybersecurity</span>
+              <span>·</span>
+              <span>IoT Systems</span>
+              <span>·</span>
+              <span>Research</span>
+              <span>·</span>
+              <span>Full-Stack</span>
+              <span>·</span>
             </div>
           ))}
         </div>
