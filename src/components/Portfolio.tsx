@@ -117,12 +117,12 @@ const EDUCATION = {
   degree: "B.E. — Artificial Intelligence & Data Science",
   college: "Shri Madhwa Vadiraja Institute of Technology & Management, Bantakal, Udupi",
   university: "Visvesvaraya Technological University (VTU)",
-  cgpa: "8.9 / 10",
+  cgpa: "9.06 / 10",
   duration: "2023 — 2027 (Expected)",
   sgpa: [
     { sem: "Sem 1", value: 9.2, stack: "C Programming, Engg. Maths I, Physics, Basic Electrical" },
     { sem: "Sem 2", value: 9.0, stack: "Python, Engg. Maths II, Chemistry, EG" },
-    { sem: "Sem 3", value: 8.6, stack: "DSA, DBMS, OOP with Java, Discrete Math" },
+    { sem: "Sem 3", value: 8.67, stack: "DSA, DBMS, OOP with Java, Discrete Math" },
     { sem: "Sem 4", value: 8.95, stack: "OS, Design & Analysis of Algorithms, Statistics for AI, DAA Lab" },
     { sem: "Sem 5", value: 9.14, stack: "Artificial Intelligence, Machine Learning, Web Tech, Computer Networks" },
     { sem: "Sem 6", value: 9.44, stack: "Deep Learning, NLP, Big Data Analytics, Cloud, Cybersecurity" },
@@ -197,42 +197,93 @@ function useReveal() {
   }, []);
 }
 
-/* ---------------- Nav ---------------- */
 function Nav() {
   const [scrolled, setScrolled] = useState(false);
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
+
     window.addEventListener("scroll", onScroll);
+
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
   const links = [
-    ["About", "#about"], ["Skills", "#skills"], ["Projects", "#projects"],
-    ["Achievements", "#achievements"], ["Education", "#education"], ["Contact", "#contact"],
+    ["About", "#about"],
+    ["Skills", "#skills"],
+    ["Projects", "#projects"],
+    ["Achievements", "#achievements"],
+    ["Education", "#education"],
+    ["Contact", "#contact"],
   ] as const;
+
   return (
-    <header className={`fixed top-0 inset-x-0 z-50 transition-all ${scrolled ? "py-3" : "py-6"}`}>
+    <header
+      className={`fixed top-0 inset-x-0 z-50 transition-all ${
+        scrolled ? "py-3" : "py-6"
+      }`}
+    >
       <div className="mx-auto max-w-7xl px-6 flex items-center justify-between">
-        <a href="#top" className="flex items-center gap-2 group">
+
+        {/* Logo */}
+        <a href="#top" className="flex items-center gap-3 group">
+
           <div className="w-9 h-9 rounded-xl glass-strong grid place-items-center overflow-hidden relative">
-            <div className="absolute inset-0 opacity-70"
-                 style={{ background: "conic-gradient(from 0deg, oklch(0.85 0.17 200), oklch(0.7 0.22 290), oklch(0.72 0.24 340), oklch(0.85 0.17 200))",
-                          animation: "orbit 8s linear infinite" }} />
-            <span className="relative font-display font-bold text-sm">A</span>
+
+            <div
+              className="absolute inset-0 opacity-70"
+              style={{
+                background:
+                  "conic-gradient(from 0deg, oklch(0.85 0.17 200), oklch(0.7 0.22 290), oklch(0.72 0.24 340), oklch(0.85 0.17 200))",
+                animation: "orbit 8s linear infinite",
+              }}
+            />
+
+            <span className="relative font-display font-bold text-sm">
+              A
+            </span>
           </div>
-          <span className="font-display font-semibold tracking-tight">Amrutha<span className="text-primary">.</span></span>
+
+          {/* Name */}
+          <div className="flex flex-col leading-none">
+            <span className="font-display text-2xl font-black tracking-tight text-white">
+              Amrutha
+              <span className="text-primary">.</span>
+            </span>
+
+            <span className="text-[10px] uppercase tracking-[0.35em] text-white/60 mt-1">
+              AI & DATA SCIENCE ENGINEER
+            </span>
+          </div>
+
         </a>
-        <nav className={`hidden md:flex items-center gap-1 glass rounded-full px-2 py-1.5 transition-all ${scrolled ? "scale-100" : "scale-105"}`}>
-          {links.map(([l, h]) => (
-            <a key={h} href={h}
-               className="px-4 py-1.5 text-sm text-white/70 hover:text-white rounded-full hover:bg-white/5 transition">
-              {l}
+
+        {/* Navigation */}
+        <nav
+          className={`hidden md:flex items-center gap-1 glass rounded-full px-2 py-1.5 transition-all ${
+            scrolled ? "scale-100" : "scale-105"
+          }`}
+        >
+          {links.map(([label, href]) => (
+            <a
+              key={href}
+              href={href}
+              className="px-4 py-1.5 text-sm text-white/70 hover:text-white rounded-full hover:bg-white/5 transition"
+            >
+              {label}
             </a>
           ))}
         </nav>
-        <a href="#contact"
-           className="magnetic-btn glass rounded-full px-5 py-2 text-sm font-medium inline-flex items-center gap-2">
-          Let's talk <ArrowUpRight className="w-4 h-4" />
+
+        {/* Contact Button */}
+        <a
+          href="#contact"
+          className="magnetic-btn glass rounded-full px-5 py-2 text-sm font-medium inline-flex items-center gap-2"
+        >
+          Let's talk
+          <ArrowUpRight className="w-4 h-4" />
         </a>
+
       </div>
     </header>
   );
@@ -290,7 +341,7 @@ function Hero() {
 
           <div className="reveal mt-14 grid grid-cols-3 gap-6 max-w-lg">
             {[
-              { k: "8.9", v: "CGPA / 10" },
+              { k: "9.06", v: "CGPA / 10" },
               { k: "12+", v: "Hackathon Wins" },
               { k: "7", v: "Live Projects" },
             ].map((s) => (
